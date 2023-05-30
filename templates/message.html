@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message</title>
+</head>
+<body>
+<form action="" method="post">
+
+    {{ form.csrf_token() }}
+    {% for filed in form if filed.name != "csrf_token" %}
+        <p> {{ filed.label() }} </p>
+
+        <p>
+            {{ filed }}
+            {% for error in filed.errors %}
+            {{ error }}
+            {% endfor %}
+        </p>
+    {% endfor %}
+</form>
+</body>
+
+
+</html>
